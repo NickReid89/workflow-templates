@@ -9,19 +9,19 @@ jobs:
         target_repo: [ 'java-service-1' ]
     steps:
       - uses: actions/checkout@v3
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4.0.4
         with:
-          # GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)
-          token: ${{ secrets.PR_REQUEST_TOKEN }}
-
-          # The message to use when committing changes.
-          commit-message: ' Updating Pull Request Template'
-          
-          # The pull request branch name.
-          branch: Pull_Request_Test_Branch
-
-          base: 'main'
-
-          # The title of the pull request.
-          title: 'feat: Testing PR workflow'
+          fetch-depth: 0
+      - name: Update Changelog
+        run: |
+          curl -o git-chglog -L https://github.com/git-chglog/git-chglog/releases/download/0.9.1/git-chglog_linux_amd64
+          chmod u+x git-chglog
+          ./git-chglog -o CHANGELOG.md
+          rm git-chglog
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: update changelog
+          title: Update Changelog
+          body: Update changelog to reflect release changes
+          branch: update-changelog
+          base: main
