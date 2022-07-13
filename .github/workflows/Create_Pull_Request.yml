@@ -5,18 +5,10 @@ jobs:
   publish-workflow-template:
     runs-on: ubuntu-latest
     steps:
-    - name: Run the Action
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Create pull request
       uses: devops-infra/action-pull-request@v0.5.0
       with:
         github_token: ${{ secrets.PR_REQUEST_TOKEN }}
-        source_branch: Pull_Request_Test_Branch
-        target_branch: main
-        title: My pull request
-        template: ./pull_request_template.md
-        body: "**Automated pull request**"
-        draft: true
-        old_string: "<!-- Add your description here -->"
-        new_string: "** Automatic pull request**"
-        get_diff: true
-        ignore_users: "dependabot"
-        allow_no_diff: false
+        title: Automatic pull request
