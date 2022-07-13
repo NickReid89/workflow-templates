@@ -8,20 +8,18 @@ jobs:
       matrix:
         target_repo: [ 'java-service-1' ]
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Update Changelog
-        run: |
-          curl -o git-chglog -L https://github.com/git-chglog/git-chglog/releases/download/0.9.1/git-chglog_linux_amd64
-          chmod u+x git-chglog
-          ./git-chglog -o CHANGELOG.md
-          rm git-chglog
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          commit-message: update changelog
-          title: Update Changelog
-          body: Update changelog to reflect release changes
-          branch: update-changelog
-          base: main
+    - name: Run the Action
+      uses: devops-infra/action-pull-request@v0.5.0
+      with:
+        github_token: ${{ secrets.PR_REQUEST_TOKEN }}
+        source_branch: Pull_Request_Test_Branch
+        target_branch: main
+        title: My pull request
+        template: ./pull_request_template.md
+        body: "**Automated pull request**"
+        draft: true
+        old_string: "<!-- Add your description here -->"
+        new_string: "** Automatic pull request**"
+        get_diff: true
+        ignore_users: "dependabot"
+        allow_no_diff: false
