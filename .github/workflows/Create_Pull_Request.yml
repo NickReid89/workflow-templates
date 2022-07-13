@@ -5,32 +5,26 @@ jobs:
   publish-workflow-template:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      
-    - name: create branch
-      run: |
-        git branch
-        git checkout -b NickTest main
-        git branch
-        git status
- 
-    - name: Create commits
-      run: |
-          git status
-          touch Nick.txt
-          git add . 
-          git status
-          
-    - name: Raise PR
-      uses: peter-evans/create-pull-request@v4
-      with:
-          branch: 'NickTest'
-          base: main
-          title: 'demo for auto pr'
-          body: 'This is to show automatic PR creation'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          delete-branch: true
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+      - run: npm ci
 
-          
-          
+      - name: Bump Version
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          npm run release
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: bump version
+          title: Bump version
+          body: Bump version to reflect release changes
+          branch: bump-version
+          base: dev
+          token: ${{ secrets.PR_REQUEST_TOKEN  }}
