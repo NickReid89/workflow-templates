@@ -10,7 +10,7 @@ jobs:
       
     - name: create branch
       run: |
-        git checkout -b NickTest main
+        git checkout -b NickTest
  
     - name: Uncommitted change
       run: touch NICKOLAS.txt
