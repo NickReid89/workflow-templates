@@ -1,10 +1,6 @@
-name: Workflow Publisher
-on:
- workflow_dispatch:
- push:
-   branches: [ 'develop',  'master', 'main' ]
-   paths:
-   - 'templates/**'
+name: Pull Request Generator
+on: [workflow_dispatch]
+
 jobs:
   publish-workflow-template:
     runs-on: ubuntu-latest
@@ -13,3 +9,19 @@ jobs:
         target_repo: [ 'java-service-1' ]
     steps:
       - uses: actions/checkout@v3
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4.0.4
+        with:
+          # GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)
+          token: PR_REQUEST_TOKEN
+
+          # The message to use when committing changes.
+          commit-message: ' Updating Pull Request Template'
+          
+          # The pull request branch name.
+          branch: Pull_Request_Test_Branch
+
+          base: 'main'
+
+          # The title of the pull request.
+          title: 'feat: Testing PR workflow'
