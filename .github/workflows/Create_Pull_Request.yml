@@ -17,12 +17,12 @@ jobs:
  
     - name: Create commits
       run: |
-          git config user.name 'Peter Evans'
-          git config user.email 'peter-evans@users.noreply.github.com'
-          date +%s > report.txt
+          git config user.name 'Nickolas Reid'
+          git config user.email 'nickreid89@users.noreply.github.com'
+          touch Nick.txt
           git commit -am "Modify tracked file during workflow"
           date +%s > new-report.txt
-          git add -A
+          git add Nick.txt
           git commit -m "Add untracked file during workflow"
           
     - name: Create Pull Request
