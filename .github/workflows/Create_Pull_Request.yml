@@ -20,9 +20,7 @@ jobs:
           git config user.name 'Nickolas Reid'
           git config user.email 'nickreid89@users.noreply.github.com'
           touch Nick.txt
-          git commit -am "Modify tracked file during workflow"
-          date +%s > new-report.txt
-          git add Nick.txt
+          git add .
           git commit -m "Add untracked file during workflow"
           
     - name: Create Pull Request
