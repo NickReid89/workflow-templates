@@ -11,7 +11,10 @@ jobs:
     - name: create branch
       run: |
         git checkout -b NickTest main
-       
+ 
+    - name: Uncommitted change
+      run: touch -t YYMMDDHHMM fileName
+ 
     - name: Create commits
       run: |
           git config user.name 'Peter Evans'
@@ -21,9 +24,6 @@ jobs:
           date +%s > new-report.txt
           git add -A
           git commit -m "Add untracked file during workflow"
-
-    - name: Uncommitted change
-      run: date +%s > report.txt
-      
+          
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
