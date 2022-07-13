@@ -17,7 +17,7 @@ jobs:
  
     - name: Create commits
       run: |
-          git remote set-head origin -a
+          git remote set-head origin -d
           git config user.name 'Nickolas Reid'
           git config user.email 'nickreid89@users.noreply.github.com'
           touch Nick.txt
