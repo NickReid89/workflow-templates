@@ -18,8 +18,6 @@ jobs:
     - name: Create commits
       run: |
           git status
-          git config user.name 'Nickolas Reid'
-          git config user.email 'nickreid89@users.noreply.github.com'
           touch Nick.txt
           git add . 
           git status
