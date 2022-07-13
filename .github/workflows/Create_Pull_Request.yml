@@ -35,7 +35,7 @@ jobs:
         token: ${{ secrets.PR_REQUEST_TOKEN }}
 
 
-        branch: main/NickTest
+        branch: NickTest
         # Delete the `branch` when closing pull requests, and when undeleted after merging. Recommend `true`.
 
         delete-branch: false
