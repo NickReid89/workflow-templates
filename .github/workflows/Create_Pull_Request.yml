@@ -13,7 +13,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4.0.4
         with:
           # GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)
-          token: ${{ PR_REQUEST_TOKEN }}
+          token: ${{ secrets.PR_REQUEST_TOKEN }}
 
           # The message to use when committing changes.
           commit-message: ' Updating Pull Request Template'
