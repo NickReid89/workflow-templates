@@ -7,16 +7,6 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
-    - name: Install Node.js, NPM and Yarn
-      uses: actions/setup-node@v1
-      with:
-        node-version: 16
-    - name: Install Dependencies
-      run: |
-            npm init
-            npm install npm@latest -g
-            npm install
-            npm ci
 
     - name: Bump Version
       run: |
