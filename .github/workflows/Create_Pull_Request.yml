@@ -13,7 +13,7 @@ jobs:
         git checkout -b NickTest main
  
     - name: Uncommitted change
-      run: touch -t YYMMDDHHMM fileName
+      run: touch NICKOLAS.txt
  
     - name: Create commits
       run: |
