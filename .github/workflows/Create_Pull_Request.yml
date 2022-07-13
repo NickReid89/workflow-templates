@@ -31,7 +31,7 @@ jobs:
           body: 'This is to show automatic PR creation'
           token: ${{ secrets.GITHUB_TOKEN }}
           delete-branch: true
-          committer: nickolas nickolaswdreid@gmail.com
-          author: nickolas nickolaswdreid@gmail.com
+          committer: nickolaswdreid@gmail.com NickReid89
+          author: nickolaswdreid@gmail.com NickReid89
           
           
