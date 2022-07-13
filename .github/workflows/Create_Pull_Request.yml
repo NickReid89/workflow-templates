@@ -23,7 +23,7 @@ jobs:
           git status
           
     - name: Raise PR
-      uses: peter-evans/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v4
       with:
           branch: 'NickTest'
           base: main
