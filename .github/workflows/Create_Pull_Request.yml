@@ -10,6 +10,7 @@ jobs:
       
     - name: create branch
       run: |
+        echo git branch
         git checkout -b NickTest
  
     - name: Uncommitted change
