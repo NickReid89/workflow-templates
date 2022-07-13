@@ -13,14 +13,17 @@ jobs:
         git branch
         git checkout -b NickTest main
         git branch
+        git status
  
     - name: Create commits
       run: |
+          git status
           git config user.name 'Nickolas Reid'
           git config user.email 'nickreid89@users.noreply.github.com'
           touch Nick.txt
-          git add .         
-          git commit -m "Add untracked file during workflow"
+          git add . 
+          git status
+          git commit -am "Add untracked file during workflow"
           
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
