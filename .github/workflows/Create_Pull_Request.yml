@@ -1,0 +1,15 @@
+name: Workflow Publisher
+on:
+ workflow_dispatch:
+ push:
+   branches: [ 'develop',  'master', 'main' ]
+   paths:
+   - 'templates/**'
+jobs:
+  publish-workflow-template:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target_repo: [ 'java-service-1' ]
+    steps:
+      - uses: actions/checkout@v3
