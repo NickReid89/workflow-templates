@@ -24,6 +24,7 @@ jobs:
           git add . 
           git status
           git commit -am "Add untracked file during workflow"
+          git push -u origin NickTest
           
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
