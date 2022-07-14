@@ -18,7 +18,7 @@ jobs:
         run: git checkout -b auto-pr-branch
         
       - name: get branch updates
-        run: git pull origin/main
+        run: git branch
         
       - name: Update author information
         run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHO   
