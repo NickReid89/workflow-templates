@@ -17,7 +17,7 @@ jobs:
         run: |
           echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
           touch newFile.txt
-          “Overwriting the existing text in the file” > newFile.txt
+          “Overwriting the existing text in the file” >> newFile.txt
 
       - name: Raise PR
         uses: peter-evans/create-pull-request@v3
