@@ -18,7 +18,12 @@ jobs:
       - name: Generate File
         run: touch newFile.txt      
       - name: write to new file
-        run: "Overwriting the existing text in the file" >> newFile.txt
+        run: |
+          cat > newFile.txt <<EOF
+          info code info 
+          info code info
+          info code info
+          EOF
       - name: Raise PR
         uses: peter-evans/create-pull-request@v3
         with:
