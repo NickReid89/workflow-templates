@@ -15,7 +15,7 @@ jobs:
         
         
       - name: get the branch
-        run: git branch
+        run: git checkout auto-pr-branch
         
       - name: pull branch
         run: git pull
@@ -48,4 +48,4 @@ jobs:
           body:
             This is to show automatic PR creation
           token: ${{ secrets.PR_REQUEST_TOKEN }}
-          delete-branch: true
+          delete-branch: false
