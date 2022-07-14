@@ -12,6 +12,19 @@ jobs:
 
       - name: extract git commit data
         uses: rlespinasse/git-commit-data-action@v1.x
+        
+        
+      - name: get the branch
+        run: git checkout ＜branchname＞
+        
+      - name: pull branch
+        run: git pull
+        
+      - name: add small change to the branch
+        run: |
+          echo "Lorem ipsum dolor sit amet, eros maiestatis ei mel, utroque accumsan no pri. Ne his vocent tractatos, an soluta mollis sea. Delicata persequeris ne mei, cum no commodo detracto. Eu eam habemus lucilius. Facer sonet lobortis id pri, delectus fabellas id cum. Cum ex iuvaret inermis conclusionemque." >> README.md
+          git add README.md
+          git commit -m "Initial commit"
 
       - name: Update author information
         run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHO              
