@@ -17,16 +17,15 @@ jobs:
       - name: get the branch
         run: git checkout -b auto-pr-branch
         
-      - name: add small change to the branch
-        run: |
-          echo "Lorem ipsum dolor sit amet, eros maiestatis ei mel, utroque accumsan no pri. Ne his vocent tractatos, an soluta mollis sea. Delicata persequeris ne mei, cum no commodo detracto. Eu eam habemus lucilius. Facer sonet lobortis id pri, delectus fabellas id cum. Cum ex iuvaret inermis conclusionemque." >> README.md
-          git add README.md
-          git commit -m "Initial commit"
-
+      - name: get branch updates
+        run: git pull origin/main
+        
       - name: Update author information
-        run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHO              
+        run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHO   
+        
       - name: Generate File
         run: touch newFile.txt      
+        
       - name: write to new file
         run: |
           cat > newFile.txt <<EOF
@@ -34,6 +33,7 @@ jobs:
           info code info
           info code info
           EOF
+          
       - name: Raise PR
         uses: peter-evans/create-pull-request@v3
         with:
