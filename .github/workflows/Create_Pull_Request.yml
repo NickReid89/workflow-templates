@@ -18,7 +18,7 @@ jobs:
         run: git checkout -b auto-pr-branch
         
       - name: pull branch
-        run: git pull
+        run: git pull main
         
       - name: add small change to the branch
         run: |
