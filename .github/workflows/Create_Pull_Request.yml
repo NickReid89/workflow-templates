@@ -15,7 +15,7 @@ jobs:
         
         
       - name: get the branch
-        run: git checkout ＜branchname＞
+        run: git checkout auto-pr-branch
         
       - name: pull branch
         run: git pull
