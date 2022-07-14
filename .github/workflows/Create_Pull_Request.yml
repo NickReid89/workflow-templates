@@ -14,11 +14,11 @@ jobs:
         uses: rlespinasse/git-commit-data-action@v1.x
 
       - name: Update author information
-        run: |
-          echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
-          touch newFile.txt
-          “Overwriting the existing text in the file” >> newFile.txt
-
+        run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHO              
+      - name: Generate File
+        run: touch newFile.txt      
+      - name: write to new file
+        run: “Overwriting the existing text in the file” >> newFile.txt
       - name: Raise PR
         uses: peter-evans/create-pull-request@v3
         with:
