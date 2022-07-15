@@ -17,7 +17,7 @@ jobs:
         run: |
           pwd
           cd ~
-          cd work/workflow-templates
+          cd work/workflow-templates/workflow-templates
           ls -a
         
       - name: get the branch
