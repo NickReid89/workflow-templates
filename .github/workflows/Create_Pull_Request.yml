@@ -18,6 +18,7 @@ jobs:
           pwd
           cd ~
           pwd
+          ls -a
         
       - name: get the branch
         run: git checkout -b auto-pr-branch
