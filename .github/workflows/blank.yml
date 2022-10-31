@@ -41,3 +41,8 @@ jobs:
           github_token: ${{ secrets.PR_REQUEST_TOKEN }}
           job_name: updateAuthor
           per_page: 30
+          
+      - name: Output Current Job Log URL
+        run: echo ${{ steps.jobs.outputs.html_url }}
+          
+          
