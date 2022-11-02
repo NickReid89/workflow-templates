@@ -44,5 +44,8 @@ jobs:
           
       - name: Output Current Job Log URL
         run: echo ${{ steps.jobs.outputs.html_url }}
+        
+      - name: print job status
+        run: echo job.status
           
           
