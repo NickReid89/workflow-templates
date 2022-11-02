@@ -38,7 +38,7 @@ jobs:
         uses: Tiryoh/gha-jobid-action@v0
         id: jobs
         with:
-          github_token: ${{ secrets.PR_REQUEST_TOKEN }}
+          github_token: ${{ secrets.PR_REQUEST_TOK }}
           job_name: build
           per_page: 30
           
@@ -46,6 +46,7 @@ jobs:
         run: echo ${{ steps.jobs.outputs.html_url }}
         
       - name: print job status
+        if: always()
         run: echo ${{ job.status }}
           
           
