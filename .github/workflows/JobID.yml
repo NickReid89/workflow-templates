@@ -36,5 +36,11 @@ jobs:
       - name: print job status
         if: always()
         run: echo ${{ job.status }}
+        
+      - name: print job status
+        if: always()
+        run: echo ${{ job.status }}
+          
+          
           
           
