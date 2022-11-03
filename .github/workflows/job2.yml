@@ -39,7 +39,7 @@ jobs:
         
       - name: print job status
         if: always()
-        run: echo ${{ job.status }}
+        run: echo "not the same"
           
           
           
