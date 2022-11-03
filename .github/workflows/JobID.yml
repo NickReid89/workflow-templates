@@ -10,11 +10,4 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
-    uses: NickReid89/actions-remote-dispatch-d/.github/workflows/test.yml@7cb5f8ef0cb1a083a2a03a3f956f8932c1e56efe
-
-
-
-          
-          
-          
-          
+    uses: NickReid89/actions-remote-dispatch-d/.github/workflows/test.yml@211841080c43d475f1db30d8f992db635d840722
