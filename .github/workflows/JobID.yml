@@ -40,6 +40,10 @@ jobs:
       - name: print job status
         if: always()
         run: echo ${{ job.status }}
+
+      - name: test called
+        uses: NickReid89/actions-remote-dispatch-d/.github/workflows/test.yml@7cb5f8ef0cb1a083a2a03a3f956f8932c1e56efe
+
           
           
           
