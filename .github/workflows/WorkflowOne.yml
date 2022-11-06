@@ -25,3 +25,14 @@ jobs:
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.PR_REQUEST_TOKEN }} \
           --data '{"event_type": "ack", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+
+      - uses: felixp8/dispatch-and-wait@v0.1.0
+        with:
+          owner: NickReid89
+          repo: actions-remote-dispatch-d
+
+          token: ${{ secrets.PR_REQUEST_TOKEN }}
+          event_type: ping
+          client_payload: '{"ref": "main"}'
+          wait_time: 5
+          max_time: 120
