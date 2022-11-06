@@ -46,7 +46,7 @@ jobs:
           workflow_file_name: ping.yml
           ref: main
           wait_interval: 10
-          client_payload: '{"event_type": "ping", "client_payload": { "repository": "$GITHUB_REPOSITORY" }}'
+          client_payload: '{"event_type": "ping", "client_payload": { "repository": "\"$GITHUB_REPOSITORY"\" }}'
           propagate_failure: true
           trigger_workflow: true
           wait_workflow: true
