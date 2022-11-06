@@ -43,10 +43,10 @@ jobs:
           owner: NickReid89
           repo: actions-remote-dispatch-d
           github_token: ${{ secrets.PR_REQUEST_TOKEN }}
-          workflow_file_name: ping.yml
+          workflow_file_name: workflow_dispatch_example.yml
           ref: main
           wait_interval: 10
-          client_payload: '{"repository": "${{ github.repository }}"}'
+          client_payload: '{"logLevel": "debug","tags": "false", "environment": "production", "repository", "${{ github.repository }}"}'
           propagate_failure: true
           trigger_workflow: true
           wait_workflow: true
