@@ -24,11 +24,6 @@ runs:
         run: echo ${{ steps.jobs.outputs.html_url }}
         shell: "bash"
         
-        
-      - name: Fail the job
-        run: exit 1
-        shell: "bash"
-        
       - name: print job status
         if: always()
         run: echo ${{ job.status }}
