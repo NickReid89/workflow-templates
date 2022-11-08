@@ -37,7 +37,6 @@ jobs:
       #     wait_time: 5
       #     max_time: 120
 
-      - name: debugging
       - uses: convictional/trigger-workflow-and-wait@v1.6.1
         with:
           owner: NickReid89
