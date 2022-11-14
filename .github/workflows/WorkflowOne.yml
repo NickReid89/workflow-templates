@@ -5,7 +5,7 @@ on:
   repository_dispatch:
   
 env:
-  booleanValue: false
+  booleanValue: "false"
 
 jobs:
   ping-pong:
