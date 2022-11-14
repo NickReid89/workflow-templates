@@ -5,7 +5,7 @@ on:
   repository_dispatch:
   
 env:
-  booleanValue: "false"
+  booleanValue: false
 
 jobs:
   ping-pong:
@@ -39,7 +39,7 @@ jobs:
       #     max_time: 120
 
       - uses: convictional/trigger-workflow-and-wait@v1.6.1
-        if: ${{ env.booleanValue == false }}
+        if: ${{ env.booleanValue = false }}
         with:
           owner: NickReid89
           repo: actions-remote-dispatch-d
