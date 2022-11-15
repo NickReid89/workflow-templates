@@ -6,6 +6,7 @@ on:
   
 env:
   booleanValue: "false"
+  BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
 
 jobs:
   ping-pong:
@@ -37,6 +38,9 @@ jobs:
       #     client_payload: '{"ref": "main"}'
       #     wait_time: 5
       #     max_time: 120
+
+      - name: Branch name
+        run: echo running on branch ${{ env.BRANCH_NAME }}
 
       - uses: convictional/trigger-workflow-and-wait@v1.6.1
         if: ${{ env.booleanValue == 'false' }}
