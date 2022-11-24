@@ -64,19 +64,11 @@ jobs:
       - uses: fabasoad/yaml-json-xml-converter-action@main
         id: xmlToYaml
         with:
-          path: './.github/workflows/person.xml'
+          path: './.github/workflows/person.json'
           from: 'json'
           to: 'xml'
       - name: Print yaml2xml result
         run: echo "${{ steps.xmlToYaml.outputs.data }}"
-      - uses: fabasoad/yaml-json-xml-converter-action@main
-        id: json2yaml
-        with:
-          path: './.github/workflows/person.xml'
-          from: 'json'
-          to: 'yaml'
-      - name: Print json2yaml result
-        run: echo "${{ steps.json2yaml.outputs.data }}"
         
       - name: list files
         run: |
@@ -84,6 +76,7 @@ jobs:
           ls -a
           cd ./.github/workflows
           ls -a
+          cat person.json
         
         
         
