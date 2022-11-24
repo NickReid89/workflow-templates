@@ -63,7 +63,7 @@ jobs:
       - uses: fabasoad/data-format-converter-action@main
         id: xml2yaml
         with:
-          input: './.github/workflows/person.xml'
+          input: 'person.xml'
           from: 'xml'
           to: 'yaml'
           
