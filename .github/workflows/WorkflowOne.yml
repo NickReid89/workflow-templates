@@ -65,7 +65,7 @@ jobs:
         id: xmlToYaml
         with:
           path: './.github/workflows/person.xml'
-          from: 'yaml'
+          from: 'json'
           to: 'xml'
       - name: Print yaml2xml result
         run: echo "${{ steps.xmlToYaml.outputs.data }}"
@@ -73,8 +73,8 @@ jobs:
         id: json2yaml
         with:
           path: './.github/workflows/person.xml'
-          from: 'xml'
-          to: 'json'
+          from: 'json'
+          to: 'yaml'
       - name: Print json2yaml result
         run: echo "${{ steps.json2yaml.outputs.data }}"
         
