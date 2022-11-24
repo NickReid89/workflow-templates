@@ -63,15 +63,15 @@ jobs:
       - uses: fabasoad/data-format-converter-action@main
         id: xml2yaml
         with:
-          input: './.github/workflows/person.json'
-          from: 'json'
-          to: 'xml'
+          input: './.github/workflows/person.xml'
+          from: 'xml'
+          to: 'yaml'
           
       - name: Print result
         run: echo "${{ steps.xml2yaml.outputs.output }}"
         
       - name: print name of file
-        run: cat person.xml
+        run: cat person.yaml
         
         
         
