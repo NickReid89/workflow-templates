@@ -39,23 +39,39 @@ jobs:
       #     wait_time: 5
       #     max_time: 120
 
-      - name: Branch name
-        run: echo running on branch ${{ env.BRANCH_NAME }}
+#       - name: Branch name
+#         run: echo running on branch ${{ env.BRANCH_NAME }}
         
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ env.BRANCH_NAME }}
+#       - uses: actions/checkout@v3
+#         with:
+#           ref: ${{ env.BRANCH_NAME }}
 
-      - uses: convictional/trigger-workflow-and-wait@v1.6.1
-        if: ${{ env.booleanValue == 'false' }}
+#       - uses: convictional/trigger-workflow-and-wait@v1.6.1
+#         if: ${{ env.booleanValue == 'false' }}
+#         with:
+#           owner: NickReid89
+#           repo: actions-remote-dispatch-d
+#           github_token: ${{ secrets.PR_REQUEST_TOKEN }}
+#           workflow_file_name: workflow_dispatch_example.yml
+#           ref: main
+#           wait_interval: 10
+#           client_payload: '{"logLevel": "debug","tags": "false", "repository": "${{ github.repository }}","testvalue": "true"}'
+#           propagate_failure: true
+#           trigger_workflow: true
+#           wait_workflow: true
+
+      - uses: fabasoad/data-format-converter-action@main
+        id: xml2yaml
         with:
-          owner: NickReid89
-          repo: actions-remote-dispatch-d
-          github_token: ${{ secrets.PR_REQUEST_TOKEN }}
-          workflow_file_name: workflow_dispatch_example.yml
-          ref: main
-          wait_interval: 10
-          client_payload: '{"logLevel": "debug","tags": "false", "repository": "${{ github.repository }}","testvalue": "true"}'
-          propagate_failure: true
-          trigger_workflow: true
-          wait_workflow: true
+          input: 'person.json'
+          from: 'json'
+          to: 'xml'
+          
+      - name: Print result
+        run: echo "${{ steps.xml2yaml.outputs.output }}"
+        
+      - name: print name of file
+        run: cat person.xml
+        
+        
+        
