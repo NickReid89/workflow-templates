@@ -78,5 +78,8 @@ jobs:
       - name: Print json2yaml result
         run: echo "${{ steps.json2yaml.outputs.data }}"
         
+      - name: list files
+        run: ls -a
+        
         
         
