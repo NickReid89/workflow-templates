@@ -60,18 +60,23 @@ jobs:
 #           trigger_workflow: true
 #           wait_workflow: true
 
-      - uses: fabasoad/data-format-converter-action@main
-        id: xml2yaml
+      - uses: actions/checkout@v1
+      - uses: fabasoad/yaml-json-xml-converter-action@main
+        id: xmlToYaml
         with:
-          input: '.github/workflows/person.xml'
+          path: './.github/workflows/person.xml'
+          from: 'yaml'
+          to: 'xml'
+      - name: Print yaml2xml result
+        run: echo "${{ steps.xmlToYaml.outputs.data }}"
+      - uses: fabasoad/yaml-json-xml-converter-action@main
+        id: json2yaml
+        with:
+          path: './.github/workflows/person.xml'
           from: 'xml'
-          to: 'yaml'
-          
-      - name: Print result
-        run: echo "${{ steps.xml2yaml.outputs.output }}"
-        
-      - name: print name of file
-        run: cat person.yaml
+          to: 'json'
+      - name: Print json2yaml result
+        run: echo "${{ steps.json2yaml.outputs.data }}"
         
         
         
