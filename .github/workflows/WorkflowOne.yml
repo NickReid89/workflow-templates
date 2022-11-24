@@ -70,6 +70,11 @@ jobs:
       - name: Print yaml2xml result
         run: echo "${{ steps.xmlToYaml.outputs.data }}"
         
+      - name: convert from json to xml
+        run: |
+          Get-Content -Path "./.github/workflows/person.json" | ConvertFrom-Json | ConvertTo-Xml -As Stream -Depth 3 | Out-File -FilePath "./.github/workflows/person.xml"
+        shell: pwsh
+        
       - name: list files
         run: |
           pwd
@@ -77,6 +82,7 @@ jobs:
           cd ./.github/workflows
           ls -a
           cat person.json
+          cat person.xml
         
         
         
