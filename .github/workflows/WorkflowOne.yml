@@ -79,7 +79,9 @@ jobs:
         run: echo "${{ steps.json2yaml.outputs.data }}"
         
       - name: list files
-        run: ls -a
+        run: |
+          cd ./github/workflows
+          ls -a
         
         
         
